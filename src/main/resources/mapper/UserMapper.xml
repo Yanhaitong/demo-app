@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yht.demo.mapper.user.UserMapper">
+<mapper namespace="com.yht.demo.mapper.UserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.user.User">
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.User">
         <id column="id_" property="id"/>
         <result column="name_" property="name"/>
         <result column="account_" property="account"/>
@@ -19,7 +19,7 @@
         <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <select id="getH5UserRegster" resultType="com.yht.demo.entity.dto.product.SysManageUVReturnDTO">
+    <select id="getH5UserRegster" resultType="com.yht.demo.entity.dto.SysManageUVReturnDTO">
         SELECT
             DATE_FORMAT(create_time,'%Y-%m-%d') date,
 			COUNT(id_) as count

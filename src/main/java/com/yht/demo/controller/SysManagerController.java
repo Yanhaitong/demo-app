@@ -7,8 +7,6 @@ import com.yht.demo.entity.dto.H5RegisterInfoReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
 import com.yht.demo.entity.dto.SysManageUVReceiveDTO;
 import com.yht.demo.entity.dto.SysManageUVReturnDTO;
-import com.yht.demo.entity.model.Channel;
-import com.yht.demo.entity.model.Client;
 import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.entity.model.LoanProductInfo;
 import com.yht.demo.entity.model.UserManager;

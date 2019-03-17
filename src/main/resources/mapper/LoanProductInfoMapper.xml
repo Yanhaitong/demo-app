@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yht.demo.mapper.product.LoanProductInfoMapper">
+<mapper namespace="com.yht.demo.mapper.LoanProductInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.LoanProductInfo">
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.LoanProductInfo">
         <id column="id_" property="id" />
         <result column="title_" property="title" />
         <result column="url_" property="url" />

@@ -1,6 +1,6 @@
-package com.yht.demo.service.user;
+package com.yht.demo.service;
 
-import com.yht.demo.entity.model.user.UserManager;
+import com.yht.demo.entity.model.UserManager;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

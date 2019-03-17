@@ -1,9 +1,9 @@
-package com.yht.demo.service.product;
+package com.yht.demo.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yht.demo.entity.dto.product.PushMessageReceiveDTO;
-import com.yht.demo.entity.dto.product.SysMessageReturnDTO;
-import com.yht.demo.entity.dto.product.SysMessageReceiveDTO;
+import com.yht.demo.entity.dto.PushMessageReceiveDTO;
+import com.yht.demo.entity.dto.SysMessageReturnDTO;
+import com.yht.demo.entity.dto.SysMessageReceiveDTO;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

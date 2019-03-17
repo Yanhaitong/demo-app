@@ -1,9 +1,9 @@
-package com.yht.demo.service.user;
+package com.yht.demo.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yht.demo.entity.dto.product.H5RegisterInfoReceiveDTO;
-import com.yht.demo.entity.dto.product.SysManageUVReturnDTO;
-import com.yht.demo.entity.dto.user.UserReceiveDTO;
+import com.yht.demo.entity.dto.H5RegisterInfoReceiveDTO;
+import com.yht.demo.entity.dto.SysManageUVReturnDTO;
+import com.yht.demo.entity.dto.UserReceiveDTO;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yht.demo.mapper.product.UvStatisticsMapper">
+<mapper namespace="com.yht.demo.mapper.UvStatisticsMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.UvStatistics">
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.UvStatistics">
         <id column="id_" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="title_" property="title"/>
@@ -17,7 +17,7 @@
         <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <resultMap id="UvResultMap" type="com.yht.demo.entity.dto.product.UvStatisticsReturnDTO">
+    <resultMap id="UvResultMap" type="com.yht.demo.entity.dto.UvStatisticsReturnDTO">
         <result column="title_" property="title"/>
         <result column="icon_" property="icon"/>
         <result column="product_url" property="productUrl"/>
@@ -45,7 +45,7 @@
             and del_flag = 0
     </select>
 
-    <select id="getAppUvStatistics" resultMap="BaseResultMap" parameterType="com.yht.demo.entity.dto.product.SysManageUVReceiveDTO">
+    <select id="getAppUvStatistics" resultMap="BaseResultMap" parameterType="com.yht.demo.entity.dto.SysManageUVReceiveDTO">
         SELECT
         *
         FROM

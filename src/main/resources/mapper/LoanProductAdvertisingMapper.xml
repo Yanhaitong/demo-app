@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yht.demo.mapper.product.LoanProductAdvertisingMapper">
+<mapper namespace="com.yht.demo.mapper.LoanProductAdvertisingMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.LoanProductAdvertising">
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.LoanProductAdvertising">
         <id column="id_" property="id"/>
         <result column="product_info_id" property="productInfoId"/>
         <result column="product_url" property="productUrl"/>
@@ -16,7 +16,7 @@
         <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <select id="getHomePageAdvertisingList" resultType="com.yht.demo.entity.dto.product.LoanProductAdvertisingReturnDTO">
+    <select id="getHomePageAdvertisingList" resultType="com.yht.demo.entity.dto.LoanProductAdvertisingReturnDTO">
         SELECT
             product_info_id as productId,
             product_url as productUrl,
@@ -29,7 +29,7 @@
         and type_ = #{type}
     </select>
 
-    <select id="getStartAdvertising" resultType="com.yht.demo.entity.dto.product.LoanProductAdvertisingReturnDTO">
+    <select id="getStartAdvertising" resultType="com.yht.demo.entity.dto.LoanProductAdvertisingReturnDTO">
         SELECT
             product_info_id as productId,
             product_url as productUrl,
