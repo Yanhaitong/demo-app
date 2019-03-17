@@ -1,0 +1,11 @@
+﻿https://api.wyaxl.com/user/getSInfo					开关
+https://api.wyaxl.com/user/addEvent					统计
+https://api.wyaxl.com/user/sendVerifyCode			验证码
+https://api.wyaxl.com/user/login					登陆
+https://api.wyaxl.com/user/index					首页
+https://api.wyaxl.com/user/getSystemMessages		首页弹框
+https://api.wyaxl.com/user/getLoanPlatforms			贷款大全
+https://api.wyaxl.com/user/getLoanPlatformsByPartId	产品分类
+https://api.wyaxl.com/user/getLoanPlatformById		产品详情页面
+https://api.wyaxl.com/user/getLoanPlatformsByTuijian	产品详情页面推荐产品
+https://api.wyaxl.com/user/logout					退出登陆

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.product.LoanProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.LoanProduct">
+        <id column="id_" property="id"/>
+        <result column="product_info_id" property="productInfoId"/>
+        <result column="classify_id" property="classifyId"/>
+        <result column="client_name" property="clientName"/>
+        <result column="channel_name" property="channelName"/>
+        <result column="is_recommend" property="isRecommend"/>
+        <result column="is_carefully_select" property="isCarefullySelect"/>
+        <result column="is_latest_product" property="isLatestProduct"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+    <resultMap id="productResultMap" type="com.yht.demo.entity.dto.product.LoanProductInfoReturnDTO">
+        <result column="id_" property="productId"/>
+        <result column="title_" property="title"/>
+        <result column="url_" property="url"/>
+        <result column="name_" property="name"/>
+        <result column="description_" property="description"/>
+        <result column="explain_label" property="explainLabel"/>
+        <result column="sort_" property="sort"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="interest_rate_type" property="interestRateType"/>
+        <result column="apply_condition" property="applyCondition"/>
+        <result column="need_datum" property="needDatum"/>
+        <result column="loan_amount_scope" property="loanAmountScope"/>
+        <result column="loan_time_scope" property="loanTimeScope"/>
+        <result column="apply_num" property="applyNum"/>
+        <result column="obtain_time" property="obtainTime"/>
+        <result column="icon_url" property="iconUrl"/>
+        <result column="url_" property="url"/>
+    </resultMap>
+
+    <select id="getLoanProductDetails" resultMap="productResultMap">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+         where
+          lp.id_ = #{loanProductId}
+          and lp.del_flag = 0
+          limit 1
+    </select>
+
+    <select id="getRecommendToDayList" resultMap="productResultMap">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+        WHERE
+          lp.channel_name = #{channelName}
+          and lp.client_name = #{clientName}
+          and lp.is_recommend = 1
+          and lp.del_flag = 0
+    </select>
+
+    <select id="getLatestProductList" resultMap="productResultMap">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+        WHERE
+          lp.channel_name = #{channelName}
+          and lp.client_name = #{clientName}
+          and lp.is_carefully_select = 1
+          and lp.del_flag = 0
+    </select>
+
+    <select id="getCarefullySelectList" resultMap="productResultMap">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+        WHERE
+          lp.channel_name = #{channelName}
+          and lp.client_name = #{clientName}
+          and lp.is_latest_product = 1
+          and lp.del_flag = 0
+    </select>
+
+    <select id="getAllProductList" resultMap="productResultMap"
+            parameterType="com.yht.demo.entity.dto.product.ProductListReceiveDTO">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+        WHERE
+          lp.channel_name = #{productListReceiveDTO.channelName}
+          and lp.client_name = #{productListReceiveDTO.clientName}
+          and lp.del_flag = 0
+    </select>
+
+    <select id="getClassifyProductList" resultMap="productResultMap" parameterType="com.yht.demo.entity.dto.product.LoanProductClassifyReceiveDTO">
+        SELECT
+          lpi.*
+        FROM
+          loan_product lp
+          LEFT JOIN loan_product_info lpi ON lpi.id_ = lp.product_info_id
+        WHERE
+          lp.channel_name = #{loanProductClassifyReceiveDTO.channelName}
+          and lp.client_name = #{loanProductClassifyReceiveDTO.clientName}
+          and lp.classify_id = #{loanProductClassifyReceiveDTO.classifyId}
+          and lp.del_flag = 0
+    </select>
+
+    <select id="getLoanProductList" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            loan_product
+        WHERE
+            del_flag = 0
+    </select>
+
+</mapper>

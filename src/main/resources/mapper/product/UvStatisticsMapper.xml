@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.product.UvStatisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.UvStatistics">
+        <id column="id_" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="title_" property="title"/>
+        <result column="icon_" property="icon"/>
+        <result column="product_url" property="productUrl"/>
+        <result column="product_id" property="productId"/>
+        <result column="client_name" property="clientName"/>
+        <result column="channel_name" property="channelName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+    <resultMap id="UvResultMap" type="com.yht.demo.entity.dto.product.UvStatisticsReturnDTO">
+        <result column="title_" property="title"/>
+        <result column="icon_" property="icon"/>
+        <result column="product_url" property="productUrl"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="getUserClickProductList" resultMap="UvResultMap">
+        SELECT
+            *
+        FROM
+            uv_statistics
+        WHERE
+            user_id = #{userId}
+            and del_flag = 0
+    </select>
+
+    <select id="getUvStatisticsByProductId" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            uv_statistics
+        WHERE
+            product_info_id = #{productId}
+            and del_flag = 0
+    </select>
+
+    <select id="getAppUvStatistics" resultMap="BaseResultMap" parameterType="com.yht.demo.entity.dto.product.SysManageUVReceiveDTO">
+        SELECT
+        *
+        FROM
+        uv_statistics
+        WHERE
+        del_flag = 0
+        <if test="sysManageUVReceiveDTO.startTime != null">
+            and create_time &lt;= ${sysManageUVReceiveDTO.startTime}
+        </if>
+        <if test="sysManageUVReceiveDTO.endTime != null">
+            and create_time &gt;= ${sysManageUVReceiveDTO.endTime}
+        </if>
+        <if test="sysManageUVReceiveDTO.clientName != null">
+            and client_name = ${sysManageUVReceiveDTO.clientName}
+        </if>
+        <if test="sysManageUVReceiveDTO.channelName != null">
+            and channel_name = ${sysManageUVReceiveDTO.channelName}
+        </if>
+        group by client_name
+    </select>
+
+</mapper>

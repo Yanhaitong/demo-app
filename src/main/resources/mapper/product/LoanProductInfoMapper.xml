@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.product.LoanProductInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.LoanProductInfo">
+        <id column="id_" property="id" />
+        <result column="title_" property="title" />
+        <result column="url_" property="url" />
+        <result column="name_" property="name" />
+        <result column="description_" property="description" />
+        <result column="explain_label" property="explainLabel" />
+        <result column="sort_" property="sort" />
+        <result column="interest_rate" property="interestRate" />
+        <result column="interest_rate_type" property="interestRateType" />
+        <result column="apply_condition" property="applyCondition" />
+        <result column="need_datum" property="needDatum" />
+        <result column="loan_amount_scope" property="loanAmountScope" />
+        <result column="loan_time_scope" property="loanTimeScope" />
+        <result column="apply_num" property="applyNum" />
+        <result column="obtain_time" property="obtainTime" />
+        <result column="icon_url" property="iconUrl" />
+        <result column="is_hide" property="isHide" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <select id="getLoanProductInfoList" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            loan_product_info
+        WHERE
+            del_flag = 0
+    </select>
+
+    <update id="hiddenOrShowProduct" parameterType="java.lang.String">
+        UPDATE loan_product_info
+        SET is_hide = #{isHide}
+        where id_ = #{productId}
+    </update>
+
+    <select id="getSysProductList" resultType="java.util.Map">
+        SELECT
+            id_ as id,
+            name_ as name
+        FROM
+            loan_product_info
+        WHERE
+            del_flag = 0
+    </select>
+
+</mapper>

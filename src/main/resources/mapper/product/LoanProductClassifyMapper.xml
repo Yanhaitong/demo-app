@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.product.LoanProductClassifyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.product.LoanProductClassify">
+        <id column="id_" property="id" />
+        <result column="client_name" property="clientName" />
+        <result column="title_" property="title" />
+        <result column="icon_" property="icon" />
+        <result column="background_url" property="backgroundUrl" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <resultMap id="classifyResultMap" type="com.yht.demo.entity.dto.product.LoanProductClassifyReturnDto">
+        <id column="id_" property="classifyId" />
+        <result column="title_" property="title" />
+        <result column="icon_" property="icon" />
+        <result column="background_url" property="backgroundUrl" />
+    </resultMap>
+
+    <select id="getProductClassifyList" resultMap="classifyResultMap" parameterType="java.lang.String">
+        SELECT
+            id_,
+            title_,
+            icon_,
+            background_url
+        FROM
+            loan_product_classify
+        WHERE
+            client_name = #{clientName}
+    </select>
+
+    <select id="getSysProductClassifyList" resultType="java.util.Map">
+        SELECT
+            id_ as id,
+            title_ as name
+        FROM
+            loan_product_classify
+        WHERE
+            del_flag = 0
+    </select>
+
+</mapper>

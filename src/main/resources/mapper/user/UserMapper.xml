@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.user.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.user.User">
+        <id column="id_" property="id"/>
+        <result column="name_" property="name"/>
+        <result column="account_" property="account"/>
+        <result column="password_" property="password"/>
+        <result column="client_type" property="clientType"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="client_name" property="clientName"/>
+        <result column="channel_name" property="channelName"/>
+        <result column="version_" property="version"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+    <select id="getH5UserRegster" resultType="com.yht.demo.entity.dto.product.SysManageUVReturnDTO">
+        SELECT
+            DATE_FORMAT(create_time,'%Y-%m-%d') date,
+			COUNT(id_) as count
+        FROM
+            user_
+        WHERE
+          del_flag = 0
+          and client_name = #{h5RegisterInfoReceiveDTO.clientName}
+          <if test="h5RegisterInfoReceiveDTO.startTime != null and h5RegisterInfoReceiveDTO.startTime != ''">
+            and create_time &gt;= #{h5RegisterInfoReceiveDTO.startTime}
+          </if>
+          <if test="h5RegisterInfoReceiveDTO.endTime != null and h5RegisterInfoReceiveDTO.endTime != ''">
+            and create_time &lt;= #{h5RegisterInfoReceiveDTO.endTime}
+          </if>
+		group by date
+    </select>
+
+    <select id="getUserDetails" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+            *
+        FROM
+            user_
+        WHERE
+            mobile_no = #{mobileNo}
+            and client_name = #{clientName}
+            and del_flag = 0
+            limit 1
+    </select>
+
+</mapper>

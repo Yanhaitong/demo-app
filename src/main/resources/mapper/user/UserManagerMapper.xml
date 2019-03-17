@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.demo.mapper.user.UserManagerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.user.UserManager">
+        <id column="id_" property="id"/>
+        <result column="name_" property="name"/>
+        <result column="account_" property="account"/>
+        <result column="password_" property="password"/>
+        <result column="icon_" property="icon"/>
+        <result column="client_name" property="clientName"/>
+        <result column="client_type" property="clientType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+
+    <select id="login" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            user_manager
+        WHERE
+          account_ = #{account}
+          and password_ = #{password}
+          and del_flag = 0
+    </select>
+
+
+</mapper>
