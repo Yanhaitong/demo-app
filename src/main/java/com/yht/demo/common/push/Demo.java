@@ -1,6 +1,6 @@
 package com.yht.demo.common.push;
 
-import com.yht.demo.entity.dto.product.PushMessageReceiveDTO;
+import com.yht.demo.entity.dto.PushMessageReceiveDTO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
