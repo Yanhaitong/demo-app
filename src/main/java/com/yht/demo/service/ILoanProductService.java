@@ -13,19 +13,13 @@ import java.util.Map;
 @Transactional
 public interface ILoanProductService {
 
-  void addProduct(LoanProduct loanProduct);
+    IPage<LoanProductInfoReturnDTO> getAllProductList(ProductListReceiveDTO productListReceiveDTO);
 
-  IPage<LoanProductInfoReturnDTO> getAllProductList(ProductListReceiveDTO productListReceiveDTO);
+    IPage<LoanProductInfoReturnDTO> getClassifyProductList(LoanProductClassifyReceiveDTO loanProductClassifyReceiveDTO);
 
-  IPage<LoanProductInfoReturnDTO> getClassifyProductList(LoanProductClassifyReceiveDTO loanProductClassifyReceiveDTO);
+    Map<String, Object> getProductHomePageList(String clientName, String channelName, String version, String clientType);
 
-  LoanProductInfoReturnDTO getLoanProductDetails(String loanProductId);
-
-  IPage<LoanProduct> getLoanProductList(Integer pageNum, Integer pageSize);
-
-  Map<String, Object> getProductHomePageList(String clientName, String channelName, String version, String clientType);
-
-  LoanProductAdvertisingReturnDTO getStartAdvertising(String clientName, String channelName);
+    LoanProductAdvertisingReturnDTO getStartAdvertising(String clientName, String channelName);
 
 
 }

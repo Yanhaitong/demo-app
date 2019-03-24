@@ -22,9 +22,4 @@ import java.util.Map;
 @Repository
 public interface LoanProductInfoMapper extends BaseMapper<LoanProductInfo> {
 
-  IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Page page);
-
-  List<Map<String, String>> getSysProductList();
-
-  void hiddenOrShowProduct(@Param("productId") String productId, @Param("isHide") String isHide);
 }

@@ -2,8 +2,10 @@ package com.yht.demo.entity.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 @ApiModel(value="接收用户登录参数")
+@Data
 public class UserReceiveDTO {
 
     @ApiModelProperty(name = "borrowingAmountStart", value = "贷款金额开始（元）", required = false)
@@ -36,74 +38,4 @@ public class UserReceiveDTO {
     @ApiModelProperty(name = "code", value = "验证码", required = true)
     private String code;
 
-
-    public String getBorrowingAmountStart() {
-        return borrowingAmountStart;
-    }
-    public void setBorrowingAmountStart(String borrowingAmountStart) {
-        this.borrowingAmountStart = borrowingAmountStart;
-    }
-
-    public String getBorrowingAmountEnd() {
-        return borrowingAmountEnd;
-    }
-    public void setBorrowingAmountEnd(String borrowingAmountEnd) {
-        this.borrowingAmountEnd = borrowingAmountEnd;
-    }
-
-    public String getBorrowingTimeStart() {
-        return borrowingTimeStart;
-    }
-    public void setBorrowingTimeStart(String borrowingTimeStart) {
-        this.borrowingTimeStart = borrowingTimeStart;
-    }
-
-    public String getBorrowingTimeEnd() {
-        return borrowingTimeEnd;
-    }
-    public void setBorrowingTimeEnd(String borrowingTimeEnd) {
-        this.borrowingTimeEnd = borrowingTimeEnd;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    public String getChannelName() {
-        return channelName;
-    }
-    public void setChannelName(String channelName) {
-        this.channelName = channelName;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public Integer getClientType() {
-        return clientType;
-    }
-    public void setClientType(Integer clientType) {
-        this.clientType = clientType;
-    }
-
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
 }

@@ -45,13 +45,6 @@ public class LoanProductController extends BaseController {
         return Result.success(loanProductDtoList);
     }
 
-    //@PostMapping("/getLoanProductDetails")
-    @ApiOperation(value = "获取产品详情")
-    public Result getLoanProductDetails(@RequestParam String loanProductId) {
-        LoanProductInfoReturnDTO loanProductDto = loanProductService.getLoanProductDetails(loanProductId);
-        return Result.success(loanProductDto);
-    }
-
     @PostMapping("/getStartAdvertising")
     @ApiOperation(value = "获取启动广告图")
     public Result getStartAdvertising(@RequestParam String clientName, @RequestParam String channelName) {

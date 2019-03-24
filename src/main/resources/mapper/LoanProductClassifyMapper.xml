@@ -33,14 +33,4 @@
             client_name = #{clientName}
     </select>
 
-    <select id="getSysProductClassifyList" resultType="java.util.Map">
-        SELECT
-            id_ as id,
-            title_ as name
-        FROM
-            loan_product_classify
-        WHERE
-            del_flag = 0
-    </select>
-
 </mapper>

@@ -1,8 +1,11 @@
 package com.yht.demo.entity.dto;
 
+import lombok.Data;
+
 /**
  * 产品详情的返回值
  */
+@Data
 public class LoanProductInfoReturnDTO {
 
     /**
@@ -73,142 +76,5 @@ public class LoanProductInfoReturnDTO {
      * 是否隐藏
      */
     private String isHide;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getExplainLabel() {
-        return explainLabel;
-    }
-
-    public void setExplainLabel(String explainLabel) {
-        this.explainLabel = explainLabel;
-    }
-
-    public String getSort() {
-        return sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
-    public String getInterestRate() {
-        return interestRate;
-    }
-
-    public void setInterestRate(String interestRate) {
-        this.interestRate = interestRate;
-    }
-
-    public String getInterestRateType() {
-        return interestRateType;
-    }
-
-    public void setInterestRateType(String interestRateType) {
-        this.interestRateType = interestRateType;
-    }
-
-    public String getApplyCondition() {
-        return applyCondition;
-    }
-
-    public void setApplyCondition(String applyCondition) {
-        this.applyCondition = applyCondition;
-    }
-
-    public String getNeedDatum() {
-        return needDatum;
-    }
-
-    public void setNeedDatum(String needDatum) {
-        this.needDatum = needDatum;
-    }
-
-    public String getLoanAmountScope() {
-        return loanAmountScope;
-    }
-
-    public void setLoanAmountScope(String loanAmountScope) {
-        this.loanAmountScope = loanAmountScope;
-    }
-
-    public String getLoanTimeScope() {
-        return loanTimeScope;
-    }
-
-    public void setLoanTimeScope(String loanTimeScope) {
-        this.loanTimeScope = loanTimeScope;
-    }
-
-    public String getApplyNum() {
-        return applyNum;
-    }
-
-    public void setApplyNum(String applyNum) {
-        this.applyNum = applyNum;
-    }
-
-    public String getObtainTime() {
-        return obtainTime;
-    }
-
-    public void setObtainTime(String obtainTime) {
-        this.obtainTime = obtainTime;
-    }
-
-    public String getIconUrl() {
-        return iconUrl;
-    }
-
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getIsHide() {
-        return isHide;
-    }
-
-    public void setIsHide(String isHide) {
-        this.isHide = isHide;
-    }
 
 }

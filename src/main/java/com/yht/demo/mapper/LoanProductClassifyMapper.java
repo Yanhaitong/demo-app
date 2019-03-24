@@ -13,7 +13,7 @@ import java.util.Map;
  * 产品分类表 Mapper 接口
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-02
  */
 @Repository
@@ -21,5 +21,4 @@ public interface LoanProductClassifyMapper extends BaseMapper<LoanProductClassif
 
     List<LoanProductClassifyReturnDto> getProductClassifyList(String clientId);
 
-  List<Map<String, String>> getSysProductClassifyList();
 }

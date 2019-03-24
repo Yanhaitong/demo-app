@@ -45,26 +45,4 @@
             and del_flag = 0
     </select>
 
-    <select id="getAppUvStatistics" resultMap="BaseResultMap" parameterType="com.yht.demo.entity.dto.SysManageUVReceiveDTO">
-        SELECT
-        *
-        FROM
-        uv_statistics
-        WHERE
-        del_flag = 0
-        <if test="sysManageUVReceiveDTO.startTime != null">
-            and create_time &lt;= ${sysManageUVReceiveDTO.startTime}
-        </if>
-        <if test="sysManageUVReceiveDTO.endTime != null">
-            and create_time &gt;= ${sysManageUVReceiveDTO.endTime}
-        </if>
-        <if test="sysManageUVReceiveDTO.clientName != null">
-            and client_name = ${sysManageUVReceiveDTO.clientName}
-        </if>
-        <if test="sysManageUVReceiveDTO.channelName != null">
-            and channel_name = ${sysManageUVReceiveDTO.channelName}
-        </if>
-        group by client_name
-    </select>
-
 </mapper>

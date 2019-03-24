@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SystemConfigServiceImpl implements ISystemConfigService {
+
     private static final Logger log = LoggerFactory.getLogger(SystemConfigServiceImpl.class);
 
 

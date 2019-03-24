@@ -19,24 +19,6 @@
         <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <select id="getH5UserRegster" resultType="com.yht.demo.entity.dto.SysManageUVReturnDTO">
-        SELECT
-            DATE_FORMAT(create_time,'%Y-%m-%d') date,
-			COUNT(id_) as count
-        FROM
-            user_
-        WHERE
-          del_flag = 0
-          and client_name = #{h5RegisterInfoReceiveDTO.clientName}
-          <if test="h5RegisterInfoReceiveDTO.startTime != null and h5RegisterInfoReceiveDTO.startTime != ''">
-            and create_time &gt;= #{h5RegisterInfoReceiveDTO.startTime}
-          </if>
-          <if test="h5RegisterInfoReceiveDTO.endTime != null and h5RegisterInfoReceiveDTO.endTime != ''">
-            and create_time &lt;= #{h5RegisterInfoReceiveDTO.endTime}
-          </if>
-		group by date
-    </select>
-
     <select id="getUserDetails" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
             *

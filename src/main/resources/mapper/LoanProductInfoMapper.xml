@@ -26,29 +26,4 @@
         <result column="del_flag" property="delFlag" />
     </resultMap>
 
-    <select id="getLoanProductInfoList" resultMap="BaseResultMap">
-        SELECT
-            *
-        FROM
-            loan_product_info
-        WHERE
-            del_flag = 0
-    </select>
-
-    <update id="hiddenOrShowProduct" parameterType="java.lang.String">
-        UPDATE loan_product_info
-        SET is_hide = #{isHide}
-        where id_ = #{productId}
-    </update>
-
-    <select id="getSysProductList" resultType="java.util.Map">
-        SELECT
-            id_ as id,
-            name_ as name
-        FROM
-            loan_product_info
-        WHERE
-            del_flag = 0
-    </select>
-
 </mapper>

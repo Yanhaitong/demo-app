@@ -28,15 +28,6 @@ public class UvStatisticsServiceImpl extends BaseService implements IUvStatistic
 
 
     @Override
-    public IPage<SysManageUVReturnDTO> getAppUvStatistics(SysManageUVReceiveDTO sysManageUVReceiveDTO) {
-        Page page = new Page();
-        page.setCurrent(sysManageUVReceiveDTO.getPageNum());
-        page.setSize(sysManageUVReceiveDTO.getPageSize());
-        IPage<SysManageUVReturnDTO> sysManageUVReturnIPage = uvStatisticsMapper.getAppUvStatistics(page, sysManageUVReceiveDTO);
-        return sysManageUVReturnIPage;
-    }
-
-    @Override
     public Result addUVClick(UvStatisticsReceiveDTO uvStatisticsReceiveDTO) {
 
         String mobileNo = stringRedisTemplate.opsForValue().get(uvStatisticsReceiveDTO.getToken());

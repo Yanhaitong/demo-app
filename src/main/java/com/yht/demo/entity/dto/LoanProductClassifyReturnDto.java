@@ -1,8 +1,11 @@
 package com.yht.demo.entity.dto;
 
+import lombok.Data;
+
 /**
  * 产品分类信息的返回值
  */
+@Data
 public class LoanProductClassifyReturnDto {
     /**
      * 分类id
@@ -21,46 +24,4 @@ public class LoanProductClassifyReturnDto {
      */
     private String backgroundUrl;
 
-
-
-    public String getClassifyId() {
-        return classifyId;
-    }
-
-    public void setClassifyId(String classifyId) {
-        this.classifyId = classifyId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getBackgroundUrl() {
-        return backgroundUrl;
-    }
-
-    public void setBackgroundUrl(String backgroundUrl) {
-        this.backgroundUrl = backgroundUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "LoanProductClassifyReturnDto{" +
-                ", title=" + title +
-                ", icon=" + icon +
-                ", backgroundUrl=" + backgroundUrl +
-                "}";
-    }
 }

@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.common.BaseService;
 import com.yht.demo.entity.dto.*;
-import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.mapper.LoanProductAdvertisingMapper;
 import com.yht.demo.mapper.LoanProductClassifyMapper;
 import com.yht.demo.mapper.LoanProductMapper;
@@ -85,32 +84,12 @@ public class LoanProductServiceImpl extends BaseService implements ILoanProductS
     }
 
     @Override
-    public void addProduct(LoanProduct loanProduct) {
-        loanProductMapper.insert(loanProduct);
-    }
-
-    @Override
     public IPage<LoanProductInfoReturnDTO> getAllProductList(ProductListReceiveDTO productListReceiveDTO) {
         Page page = new Page();
         page.setCurrent(productListReceiveDTO.getPageNum());
         page.setSize(productListReceiveDTO.getPageSize());
         IPage<LoanProductInfoReturnDTO> loanProductDtoIPage = loanProductMapper.getAllProductList(page, productListReceiveDTO);
         return loanProductDtoIPage;
-    }
-
-    @Override
-    public LoanProductInfoReturnDTO getLoanProductDetails(String loanProductId) {
-        LoanProductInfoReturnDTO loanProductDto = loanProductMapper.getLoanProductDetails(loanProductId);
-        return loanProductDto;
-    }
-
-    @Override
-    public IPage<LoanProduct> getLoanProductList(Integer pageNum, Integer pageSize) {
-        Page page = new Page();
-        page.setCurrent(pageNum);
-        page.setSize(pageSize);
-        IPage<LoanProduct> loanProductIPage = loanProductMapper.getLoanProductList(page);
-        return loanProductIPage;
     }
 
     @Override

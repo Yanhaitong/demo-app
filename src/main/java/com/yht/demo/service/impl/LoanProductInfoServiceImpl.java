@@ -24,38 +24,7 @@ public class LoanProductInfoServiceImpl implements ILoanProductInfoService {
     @Autowired
     private LoanProductInfoMapper loanProductInfoMapper;
 
-    @Override
-    public void addLoanProductInfo(LoanProductInfo loanProductInfo) {
-        loanProductInfo.setCreateTime(new Date());
-        loanProductInfoMapper.insert(loanProductInfo);
-    }
 
-    @Override
-    public IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize) {
-        Page page = new Page();
-        page.setCurrent(pageNum);
-        page.setSize(pageSize);
-        IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoMapper.getLoanProductInfoList(page);
-        return loanProductInfoReturnDTOIPage;
-    }
-
-    @Override
-    public List<Map<String, String>> getSysProductList() {
-        return loanProductInfoMapper.getSysProductList();
-    }
-
-    @Override
-    public void hiddenOrShowProduct(String productId, String isHide) {
-        loanProductInfoMapper.hiddenOrShowProduct(productId, isHide);
-    }
-
-    @Override
-    public void updateLoanProduct(LoanProductInfo loanProductInfo) {
-        loanProductInfo.setUpdateTime(new Date());
-        loanProductInfoMapper.updateById(loanProductInfo);
-    }
-
-    @Override
     public Result uploadCredentials(String bucket) {
 
         // 密钥配置

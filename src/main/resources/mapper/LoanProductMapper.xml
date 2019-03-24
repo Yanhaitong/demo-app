@@ -71,7 +71,7 @@
         WHERE
           lp.channel_name = #{channelName}
           and lp.client_name = #{clientName}
-          and lp.is_carefully_select = 1
+          and lp.is_latest_product = 1
           and lp.del_flag = 0
     </select>
 
@@ -84,7 +84,7 @@
         WHERE
           lp.channel_name = #{channelName}
           and lp.client_name = #{clientName}
-          and lp.is_latest_product = 1
+          and lp.is_carefully_select = 1
           and lp.del_flag = 0
     </select>
 
@@ -112,15 +112,6 @@
           and lp.client_name = #{loanProductClassifyReceiveDTO.clientName}
           and lp.classify_id = #{loanProductClassifyReceiveDTO.classifyId}
           and lp.del_flag = 0
-    </select>
-
-    <select id="getLoanProductList" resultMap="BaseResultMap">
-        SELECT
-            *
-        FROM
-            loan_product
-        WHERE
-            del_flag = 0
     </select>
 
 </mapper>

@@ -23,15 +23,11 @@ public interface LoanProductMapper extends BaseMapper<LoanProduct> {
 
   IPage<LoanProductInfoReturnDTO> getAllProductList(@Param("page") Page page, @Param("productListReceiveDTO") ProductListReceiveDTO productListReceiveDTO);
 
-  List<LoanProductInfoReturnDTO> getCarefullySelectList(@Param("clientName") String clientName, @Param("channelName") String channelName);
-
   IPage<LoanProductInfoReturnDTO> getClassifyProductList(@Param("page") Page page, @Param("loanProductClassifyReceiveDTO") LoanProductClassifyReceiveDTO loanProductClassifyReceiveDTO);
 
   List<LoanProductInfoReturnDTO> getLatestProductList(@Param("clientName") String clientName, @Param("channelName") String channelName);
 
   LoanProductInfoReturnDTO getLoanProductDetails(@Param("loanProductId") String loanProductId);
-
-  IPage<LoanProduct> getLoanProductList(Page page);
 
   List<LoanProductInfoReturnDTO> getRecommendToDayList(@Param("clientName") String clientName, @Param("channelName") String channelName);
 

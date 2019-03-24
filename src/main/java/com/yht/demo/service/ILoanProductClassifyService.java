@@ -8,6 +8,4 @@ import java.util.Map;
 @Transactional
 public interface ILoanProductClassifyService {
 
-  List<Map<String, String>> getSysProductClassifyList();
-
 }
