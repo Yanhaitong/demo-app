@@ -18,28 +18,30 @@
 
     <select id="getHomePageAdvertisingList" resultType="com.yht.demo.entity.dto.LoanProductAdvertisingReturnDTO">
         SELECT
-            product_info_id as productId,
-            product_url as productUrl,
-            cover_ as cover
+            lpa.product_info_id as productId,
+            lpi.url_ as productUrl,
+            lpa.cover_ as cover
         FROM
-            loan_product_advertising
+            loan_product_advertising lpa
+		LEFT JOIN loan_product_info lpi ON lpi.id_ = lpa.product_info_id
         WHERE
-        client_name = #{clientName}
-        and channel_name = #{channelName}
-        and type_ = #{type}
+        lpa.client_name = #{clientName}
+        and lpa.channel_name = #{channelName}
+        and lpa.type_ = #{type}
     </select>
 
     <select id="getStartAdvertising" resultType="com.yht.demo.entity.dto.LoanProductAdvertisingReturnDTO">
         SELECT
-            product_info_id as productId,
-            product_url as productUrl,
-            cover_ as cover
+            lpa.product_info_id as productId,
+            lpi.url_ as productUrl,
+            lpa.cover_ as cover
         FROM
-            loan_product_advertising
+            loan_product_advertising lpa
+		LEFT JOIN loan_product_info lpi ON lpi.id_ = lpa.product_info_id
         WHERE
-        client_name = #{clientName}
-        and channel_name = #{channelName}
-        and type_ = 0
+        lpa.client_name = #{clientName}
+        and lpa.channel_name = #{channelName}
+        and lpa.type_ = 0
         limit 1
     </select>
 
